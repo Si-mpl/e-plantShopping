@@ -263,6 +263,9 @@ function ProductList({ onHomeClick }) {
             {...prevState, [plant.name]: true}
         ))
     }
+
+    
+
     return (
         <div>
             <div className="navbar" style={styleObj}>
@@ -295,7 +298,7 @@ function ProductList({ onHomeClick }) {
                                     <div className='product-title'>{plant.name}</div>
                                     <div className='product-description'>{plant.description}</div>
                                     <div className='product-price'>{plant.cost}</div>
-                                    <button className={addedToCart[plant.name] ? 'product-button added-to-cart' : 'product-button'} onClick={() => handleAddToCart(plant)}> {addedToCart[plant.name] ? 'Added To Cart' : 'Add To Cart' }</button>
+                                    <button disabled={addedToCart[plant.name]} className={addedToCart[plant.name] ? 'product-button added-to-cart' : 'product-button'} onClick={() => handleAddToCart(plant)}> {addedToCart[plant.name] ? 'Added To Cart' : 'Add To Cart' }</button>
                                 </div>
                             ))}
                             </div>
@@ -304,7 +307,7 @@ function ProductList({ onHomeClick }) {
 
                 </div>
             ) : (
-                <CartItem onContinueShopping={handleContinueShopping} />
+                <CartItem onContinueShopping={handleContinueShopping} setAddedToCart={setAddedToCart}/>
             )}
         </div>
     );
