@@ -44,9 +44,9 @@ const CartItem = ({ onContinueShopping }) => {
   // Calculate total cost based on quantity for an item
   const calculateTotalCost = (item) => {
     let result = 0;
-    const existing = cart.find((plant) => plant.name = item.name);
+    const existing = cart.find((plant) => plant.name === item.name);
     if(existing){
-        result = parseFloat(existing.cost.substring(1)) * plant.quantity;
+        result = parseFloat(existing.cost.substring(1)) * existing.quantity;
     }
     return result
   };
