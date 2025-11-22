@@ -46,7 +46,7 @@ const CartItem = ({ onContinueShopping }) => {
     let result = 0;
     const existing = cart.find((plant) => plant.name = item.name);
     if(existing){
-        result = parseFloat(plant.cost.substring(1)) * plant.quantity;
+        result = parseFloat(existing.cost.substring(1)) * plant.quantity;
     }
     return result
   };
